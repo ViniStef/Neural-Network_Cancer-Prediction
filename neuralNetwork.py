@@ -84,7 +84,6 @@ def create_model(neurons=6, learn_rate=0.01, optimizer='adam'):
     else:
         raise ValueError("Optimizer not supported")
     
-
     """
     Compilamos os parâmetros, indicando a perda(loss) como 'binary_crossentropy', já que é uma decisão binária, e, indicamos em 'metrics' qual o foco desse modelo, sendo 'accuracy' um indicador que queremos o resultado focado em precisão.
     """
@@ -113,7 +112,7 @@ param_grid = {
 }
 
 """
-Performamos a busca em grid, que será o responsável por utilizar o modelo que criamos previamente e testar as diferentes combinações de parâmetros.Isso nos possibilita identificar as melhores combinações que podem ser utilizadas para maximizar a precisão e minimizar a perda (loss).
+Performamos a busca em grid, que será o responsável por utilizar o modelo que criamos previamente e testar as diferentes combinações de parâmetros. Isso nos possibilita identificar as melhores combinações que podem ser utilizadas para maximizar a precisão e minimizar a perda (loss).
 O parâmetro 'n_jobs=None' indica que o cálculo será executado na CPU principal, utilizando apenas um núcleo. Isso acontece porque 'None' é um indicativo para usar o padrão do GridSearchCV, que geralmente é '1'.
 O parâmetro cv=5 indica quantas dobras serão utilizadas na validação cruzada (Cross-validation). A validação cruzada envolve dividir o conjunto de dados em partes, alternando entre treino e teste em cada iteração. Com cv=5, o processo é realizado da seguinte maneira: o conjunto de dados é dividido aleatoriamente em 5 partes iguais. Em cada iteração da validação cruzada, 4 partes são usadas para treinar o modelo e 1 parte é reservada para avaliação do modelo (conjunto de teste). Esse processo é repetido 5 vezes, garantindo que cada parte seja usada uma vez como conjunto de teste. Isso ajuda o modelo a se adaptar a diferentes padrões nos dados e a evitar o overfitting, ao proporcionar uma avaliação mais robusta do desempenho do modelo em dados não vistos.
 """
